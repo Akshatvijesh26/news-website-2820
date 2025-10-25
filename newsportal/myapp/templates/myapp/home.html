@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DailyBuzz</title>
+    <style>
+        body {font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;}
+        header { background: #333; color: white; padding: 1rem; }
+        nav a { color: white; text-decoration: none; margin-right: 1rem; }
+        nav a:hover { text-decoration: underline; }
+        .article { background: white; margin: 1rem auto; padding: 1rem; max-width: 800px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; }
+        time { color: gray; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span style="font-weight:bold; font-size:1.5rem;">DailyBuzz</span>
+            {% for category in categories %}
+                <a href="{% url 'category_articles' category.id %}">{{ category.name }}</a>
+            {% endfor %}
+        </nav>
+    </header>
+
+    {% for article in articles %}
+        <div class="article">
+            <h2>{{ article.title }}</h2>
+            <time>{{ article.published_at }}</time>
+            <p>{{ article.content|truncatechars:300 }}</p>
+        </div>
+    {% empty %}
+        <p style="text-align:center;">No news articles yet!</p>
+    {% endfor %}
+
+</body>
+</html>
