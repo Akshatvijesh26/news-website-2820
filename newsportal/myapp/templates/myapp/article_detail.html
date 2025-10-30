@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }} - NewsPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .article-header {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .article-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .article-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-meta {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .back-link {
+            margin-bottom: 2rem;
+        }
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">NewsPortal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">All News</a>
+                    </li>
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'category_articles' category.id %}">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="container">
+            <div class="back-link">
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                    ← Back to All Articles
+                </a>
+            </div>
+            <h1 class="display-4 mb-3">{{ article.title }}</h1>
+            <div class="article-meta">
+                <span class="me-3">
+                    <strong>Published:</strong> {{ article.published_at|date:"F d, Y - g:i A" }}
+                </span>
+                <span class="badge bg-secondary">{{ article.category.name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="container mb-5">
+        {% if article.image %}
+        <img src="{{ article.image.url }}" class="article-image" alt="{{ article.title }}">
+        {% endif %}
+
+        <div class="article-content">
+            {{ article.content|linebreaks }}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 NewsPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
