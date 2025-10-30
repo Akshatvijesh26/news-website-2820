@@ -73,3 +73,14 @@ newsportal/
 <img width="1242" height="949" alt="image" src="https://github.com/user-attachments/assets/d2c90d4f-49e5-423f-9ce4-f5edbb6b59ad" />
 
 
+
+
+
+
+
+
+
+
+## comments by team members on their contribution
+-Akshat Vijesh ITA320
+-I learned how web applications are developed from start to finish. I understood how the frontend and backend connect and how everything works together. I used HTML and Bootstrap for the layout and design, Python for backend logic, and SQLite for handling the database. I also worked with Pillow for image processing and learned how to manage routes, templates, and static files. Overall, I got a clear idea of how to integrate different technologies to build a complete web application.
