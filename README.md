@@ -115,11 +115,11 @@ We used admin.py module to have a user authenticated and safe website operation 
 ## Challenges we faced
 -Design Challenges
 
-Visual Balance – The site looked too flashy at first, so I switched to a minimal flat layout with red accents.
+Visual Balance – The site looked too flashy at first, so we switched to a minimal flat layout with red accents.
 
-Information Hierarchy – Article cards were cluttered; I added color-coded metadata, badges, and better spacing.
+Information Hierarchy – Article cards were cluttered; we added color-coded metadata, badges, and better spacing.
 
-Image Handling – Some posts had missing images; I used fixed-height containers, red placeholders, and object-fit.
+Image Handling – Some posts had missing images; we used fixed-height containers, red placeholders, and object-fit.
 
 Responsive Design – Made layouts work across devices with Bootstrap grid and media queries.
 
