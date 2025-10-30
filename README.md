@@ -111,6 +111,22 @@ We used admin.py module to have a user authenticated and safe website operation 
           
   <img width="1907" height="973" alt="image" src="https://github.com/user-attachments/assets/c9c42fb9-5fd3-4f25-8619-2885d58463ab" />
     This window is used to create and save articles, here we have the options to add category,image,author and set date automatically
+    
+## Challenges we faced
+-Design Challenges
+
+Visual Balance – The site looked too flashy at first, so I switched to a minimal flat layout with red accents.
+
+Information Hierarchy – Article cards were cluttered; I added color-coded metadata, badges, and better spacing.
+
+Image Handling – Some posts had missing images; I used fixed-height containers, red placeholders, and object-fit.
+
+Responsive Design – Made layouts work across devices with Bootstrap grid and media queries.
+
+Performance – Fixed N+1 query issue using select_related() for faster database queries.
+
+## Major issue we faced
+-When we tried to add a base template using the extends feature, it caused multiple file errors and conflicts in our project structure. We faced issues with linking CSS, paths, and block inheritance, which made several pages break. Since fixing everything would’ve taken too long and caused more confusion, we decided to start over and use single templates instead. This helped us keep the project stable and ensured all pages worked properly.
 
 ## comments by team members on their contribution
 -Akshat Vijesh ITA320
