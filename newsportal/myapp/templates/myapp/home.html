@@ -5,69 +5,242 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewsPortal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
         body {
-            background-color: #f8f9fa;
+            background-color: #f5f5f5;
+            color: #1a1a1a;
         }
+
         .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: #dc2626;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.2rem 0;
         }
+
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: white !important;
+            letter-spacing: -0.5px;
         }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin: 0 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid #dc2626;
+        }
+
+        .page-header h2 {
+            color: #1a1a1a;
+            font-weight: 700;
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .sort-dropdown .btn {
+            background-color: white;
+            border: 2px solid #e5e5e5;
+            color: #1a1a1a;
+            font-weight: 500;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .sort-dropdown .btn:hover {
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        .dropdown-menu {
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem;
+        }
+
+        .dropdown-item {
+            border-radius: 6px;
+            padding: 0.7rem 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+
         .article-card {
-            transition: transform 0.2s;
-            height: 100%;
-            cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e5;
+            background: white;
         }
+
         .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            text-decoration: none;
-            color: inherit;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(220, 38, 38, 0.15);
+            border-color: #dc2626;
         }
+
         .article-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            background-color: #e9ecef;
+            background-color: #f5f5f5;
         }
+
         .no-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 220px;
+            background-color: #dc2626;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 3rem;
         }
-        .article-time {
-            color: #6c757d;
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            color: #666;
             font-size: 0.9rem;
+            font-weight: 500;
         }
-        .category-link {
-            transition: color 0.2s;
+
+        .author-name {
+            color: #dc2626;
+            font-weight: 600;
         }
-        footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            background-color: #343a40;
+
+        .article-time {
+            color: #666;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .category-badge {
+            background-color: #dc2626;
             color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .empty-state {
+            background-color: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .empty-state h4 {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .empty-state p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .page-header h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">NewsPortal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="{% url 'home' %}">📰NewsPortal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.5);">
+                <span class="navbar-toggler-icon" style="filter: brightness(0) invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -76,41 +249,67 @@
                     </li>
                     {% for category in categories %}
                     <li class="nav-item">
-                        <a class="nav-link category-link" href="{% url 'category_articles' category.id %}">{{ category.name }}</a>
+                        <a class="nav-link" href="{% url 'category_articles' category.id %}">{{ category.name }}</a>
                     </li>
                     {% endfor %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <div class="container my-5">
-        <div class="row">
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2>Latest News</h2>
+            <div class="sort-dropdown dropdown">
+                <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort By
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
+                    <li><a class="dropdown-item" href="?sort=-published_at">Newest First</a></li>
+                    <li><a class="dropdown-item" href="?sort=published_at">Oldest First</a></li>
+                    <li><a class="dropdown-item" href="?sort=title">Title (A-Z)</a></li>
+                    <li><a class="dropdown-item" href="?sort=-title">Title (Z-A)</a></li>
+                    <li><a class="dropdown-item" href="?sort=author">Author (A-Z)</a></li>
+                    <li><a class="dropdown-item" href="?sort=-author">Author (Z-A)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="row g-4">
             {% for article in articles %}
-            <div class="col-md-6 col-lg-4 mb-4">
+            <div class="col-md-6 col-lg-4">
                 <a href="{% url 'article_detail' article.id %}" class="article-card card">
                     {% if article.image %}
-                        <img src="{{ article.image.url }}" class="card-img-top article-image" alt="{{ article.title }}">
+                        <img src="{{ article.image.url }}" class="article-image" alt="{{ article.title }}">
                     {% else %}
                         <div class="no-image">
-                            <i class="bi bi-newspaper">📰</i>
+                            📰
                         </div>
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
-                        <p class="article-time mb-3">
-                            <small>{{ article.published_at|date:"F d, Y" }}</small>
-                            <span class="badge bg-secondary ms-2">{{ article.category.name }}</span>
+                        <div class="author-info">
+                            <span>By</span>
+                            <span class="author-name">{{ article.author.username|default:"Unknown" }}</span>
+                        </div>
+                        <p class="article-time">
+                            {{ article.published_at|date:"F d, Y" }}
                         </p>
-                        <p class="card-text">{{ article.content|truncatechars:150 }}</p>
+                        <span class="category-badge">{{ article.category.name }}</span>
+                        <p class="card-text">{{ article.content|truncatechars:120 }}</p>
                     </div>
                 </a>
             </div>
             {% empty %}
             <div class="col-12">
-                <div class="alert alert-info text-center" role="alert">
-                    <h4>No news articles yet!</h4>
+                <div class="empty-state">
+                    <h4>No news articles yet</h4>
                     <p class="mb-0">Check back soon for the latest updates.</p>
                 </div>
             </div>
@@ -121,7 +320,7 @@
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2025 NewsPortal. All rights reserved.</p>
+            <p>&copy; 2025 NewsPortal. All rights reserved.</p>
         </div>
     </footer>
 

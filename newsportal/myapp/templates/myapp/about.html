@@ -1,10 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NewsPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .navbar {
+            background-color: #dc2626;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.2rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: white !important;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin: 0 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+        }
+
+        .about-header {
+            background-color: #dc2626;
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .about-content {
+            padding: 3rem;
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            color: #dc2626;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #dc2626;
+            display: inline-block;
+        }
+
+        .about-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .team-member:hover {
+            border-color: #dc2626;
+            transform: translateY(-5px);
+        }
+
+        .team-member-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #dc2626;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .team-member h3 {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .team-member .email {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background-color: #dc2626;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                margin: 1.5rem;
+            }
+
+            .about-header h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">NewsPortal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.5);">
+                <span class="navbar-toggler-icon" style="filter: brightness(0) invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">All News</a>
+                    </li>
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'category_articles' category.id %}">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Container -->
+    <div class="container">
+        <div class="about-container">
+            <!-- About Header -->
+            <div class="about-header">
+                <h1>About NewsPortal</h1>
+                <p>Your trusted source for the latest news and stories</p>
+            </div>
+
+            <!-- About Content -->
+            <div class="about-content">
+                <!-- Mission Section -->
+                <div class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>
+                        NewsPortal is dedicated to delivering accurate, timely, and unbiased news coverage to readers around the world.
+                        We believe in the power of information and strive to keep our community informed about the events that shape our world.
+                    </p>
+                    <p>
+                        Our team of experienced journalists and editors work tirelessly to bring you comprehensive coverage across multiple categories,
+                        from breaking news to in-depth analysis and feature stories.
+                    </p>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="about-section">
+                    <h2>Our Impact</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Articles Published</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Monthly Readers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">News Coverage</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="about-section">
+                    <h2>Our Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-member-icon">👤</div>
+                            <h3>Akshat Vijesh</h3>
+                            <p>Lead Developer</p>
+                            <p class="email">akshat24beit@student.mes.ac.in</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-icon">👤</div>
+                            <h3>Mohit Kharunkar</h3>
+                            <p> integration & sample fixture</p>
+                            <p class="email">mohit24beit@student.mes.ac.in</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-icon">👤</div>
+                            <h3>Vedant Ingale</h3>
+                            <p>Frontend</p>
+                            <p class="email">member3@example.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="about-section">
+                    <h2>Get In Touch</h2>
+                    <p>
+                        We'd love to hear from you! Whether you have a story tip, feedback, or just want to say hello,
+                        feel free to reach out to us.
+                    </p>
+                    <p>
+                        <strong>Email:</strong> contact@newsportal.com<br>
+                        <strong>Location:</strong> Navi Mumbai, Maharashtra, India
+                    </p>
+                </div>
+
+                <!-- Technology Section -->
+                <div class="about-section">
+                    <h2>Built With</h2>
+                    <p>
+                        This project is built using modern web technologies including Django, Python, Bootstrap, and PostgreSQL.
+                        It demonstrates best practices in web development, including responsive design, clean code architecture, and user-friendly interfaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 NewsPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
