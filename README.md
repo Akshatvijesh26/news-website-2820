@@ -68,18 +68,42 @@ newsportal/
 ├── db.sqlite3          # Database
 └── manage.py           # Django management
 ```
+##Website Appearance
 
 <img width="1891" height="1015" alt="image" src="https://github.com/user-attachments/assets/037c90ed-1726-445c-8183-96d5acd180d7" />
+
 <img width="1242" height="949" alt="image" src="https://github.com/user-attachments/assets/d2c90d4f-49e5-423f-9ce4-f5edbb6b59ad" />
 
+## The features
+✅ Article management
+✅ Category filtering
+✅ Image uploads
+✅ Sorting functionality
+✅ Author attribution
+✅ Responsive navbar
+✅ About page with team info
 
+# What Makes This Project Strong:
+Full-stack - Backend + Frontend + Database
+CRUD operations - Create, Read via admin
+Relationships - Foreign keys (Category, Author)
+File handling - Media uploads
+Clean code - Well-structured
+Professional design - Not just functional, looks good
+GitHub ready - Professor can clone and run
 
+## Administrative operations
+We used admin.py module to have a user authenticated and safe website operation that 
+-can add articles
+-can add categories
+-add images, authors, date(automated)
 
+  <img width="599" height="442" alt="image" src="https://github.com/user-attachments/assets/02952119-bd26-4656-8bba-2d7ac55316d3" />  
 
-
-
-
-
+  <img width="1898" height="966" alt="image" src="https://github.com/user-attachments/assets/18c0ee05-5b79-4f11-bbaf-283c07db730b" />
+          
+  <img width="1907" height="973" alt="image" src="https://github.com/user-attachments/assets/c9c42fb9-5fd3-4f25-8619-2885d58463ab" />
+    This window is used to create and save articles, here we have the options to add category,image,author and set date automatically
 
 ## comments by team members on their contribution
 -Akshat Vijesh ITA320
