@@ -34,13 +34,18 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+### 4. Create superuser for admin access
+```bash
+python manage.py createsuperuser
+```
+Follow the prompts to set username, email, and password.
 
-### 4. Run the development server
+### 5. Run the development server
 ```bash
 python manage.py runserver
 ```
 
-### 5. Access the application
+### 6. Access the application
 - **Website:** http://127.0.0.1:8000/
 - **Admin Panel:** http://127.0.0.1:8000/admin/
 
