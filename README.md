@@ -53,6 +53,13 @@ python manage.py runserver
 - **Username:** admin
 - **Password:** [your admin password]
 
+## Important: Loading Sample Articles
+**To view the website with our pre-published articles, run:**
+```bash
+git pull origin main
+```
+This ensures you have the latest database with all sample articles and images we've created for demonstration.
+
 ## Technologies Used
 - Django 5.2
 - Python 3.12
